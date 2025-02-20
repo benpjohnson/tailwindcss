@@ -59,7 +59,8 @@ def initialize(po):
 def generate_css(po):
     THEME_PATH = path.abspath(path.join(po.path, ".."))
     input_file_path = os.path.join(THEME_PATH, "input.css")
-    output_file_path = os.path.join(THEME_PATH, "output/output.css")
+    output_file_path = os.path.join(THEME_PATH, f"{OUTPUT_PATH}/output.css")
+
     twconfig_file_path = os.path.join(BASE_DIR, "tailwind.config.js")
 
     input_output = f"-i {input_file_path} -o {output_file_path}"
