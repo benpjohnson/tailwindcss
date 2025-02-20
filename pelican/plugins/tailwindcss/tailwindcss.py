@@ -65,7 +65,7 @@ def generate_css(po):
     input_output = f"-i {input_file_path} -o {output_file_path}"
     print(f"{utils.LOG_PREFIX} Build css ({output_file_path})")
 
-    commands.run(
+    subprocess.run(
         f"npx tailwindcss@3 -c {twconfig_file_path} {input_output}",
     )
 
