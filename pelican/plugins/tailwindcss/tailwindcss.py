@@ -13,7 +13,6 @@ BASE_DIR = os.path.dirname(__file__)
 def initialize(po):
     SETTINGS = po.settings
     TAILWIND_SETTINGS = SETTINGS.get("TAILWIND", None)
-    TAILWIND_OUTPUT = SETTINGS.get("OUTPUT_PATH", None)
     THEME_PATH = path.abspath(path.join(po.path, ".."))
 
     node_modules_path = os.path.join(BASE_DIR, "node_modules/")
