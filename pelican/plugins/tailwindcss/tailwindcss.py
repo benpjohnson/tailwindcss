@@ -13,6 +13,7 @@ BASE_DIR = os.path.dirname(__file__)
 def initialize(po):
     SETTINGS = po.settings
     TAILWIND_SETTINGS = SETTINGS.get("TAILWIND", None)
+    TAILWIND_OUTPUT = SETTINGS.get("OUTPUT_PATH", None)
     THEME_PATH = path.abspath(path.join(po.path, ".."))
 
     node_modules_path = os.path.join(BASE_DIR, "node_modules/")
@@ -59,7 +60,7 @@ def initialize(po):
 def generate_css(po):
     THEME_PATH = path.abspath(path.join(po.path, ".."))
     input_file_path = os.path.join(THEME_PATH, "input.css")
-    output_file_path = os.path.join(THEME_PATH, f"{OUTPUT_PATH}/output.css")
+    output_file_path = os.path.join(THEME_PATH, f"{TAILWIND_OUTPUT}/output.css")
 
     twconfig_file_path = os.path.join(BASE_DIR, "tailwind.config.js")
 
