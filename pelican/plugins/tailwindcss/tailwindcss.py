@@ -58,6 +58,8 @@ def initialize(po):
 
 
 def generate_css(po):
+    SETTINGS = po.settings
+    TAILWIND_OUTPUT = SETTINGS.get("OUTPUT_PATH", None)
     THEME_PATH = path.abspath(path.join(po.path, ".."))
     input_file_path = os.path.join(THEME_PATH, "input.css")
     output_file_path = os.path.join(THEME_PATH, f"{TAILWIND_OUTPUT}/output.css")
