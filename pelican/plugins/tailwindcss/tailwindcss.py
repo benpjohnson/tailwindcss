@@ -59,19 +59,19 @@ def initialize(po):
 def generate_css(po):
     SETTINGS = po.settings
     TAILWIND_OUTPUT = SETTINGS.get("OUTPUT_PATH", None)
+    TAILWIND_CONFIG_PATH = SETTINGS.get("TAILWIND_CONFIG_PATH", os.path.join(BASE_DIR, "tailwind.config.js"))
+
     THEME_PATH = path.abspath(path.join(po.path, ".."))
+
     input_file_path = os.path.join(THEME_PATH, "input.css")
     output_file_path = os.path.join(THEME_PATH, f"{TAILWIND_OUTPUT}/output.css")
 
-    twconfig_file_path = os.path.join(BASE_DIR, "tailwind.config.js")
-
-    input_output = f"-i {input_file_path} -o {output_file_path}"
+    input_output = f"-i {TAILWIND_CONFIG_PATH} -o {output_file_path}"
     print(f"{utils.LOG_PREFIX} Build css ({output_file_path})")
 
     subprocess.run(
         f"npx tailwindcss@3 -c {twconfig_file_path} {input_output}",
     )
-
 
 def register():
     signals.initialized.connect(initialize)
